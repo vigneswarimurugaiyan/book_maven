@@ -1,6 +1,6 @@
+import { DataserviceService } from './dataservice.service';
 import { Component } from '@angular/core';
-import {Http,Response} from '@angular/http';
-import 'rxjs/add/operator/map';
+import {HttpModule} from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -8,27 +8,30 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private apiUrl = 'http://address-book-demo.herokuapp.com/api/contacts';
-  data:any={};
-  constructor(private http: Http)
-  {
-    console.log("hello my user");
-    this.getContacts();
-    this.getData();
+  users :any[];
+  user ={
+    id:"",
+    title:"",
+  firstname:"",
+    lastname:"",
+    dateofbirth:"",
+    email:""
+    
   }
-  getData()
+  tarray=["Mr","Ms","Mrs"];
+  constructor(public dataservice:DataserviceService)
   {
-    return this.http.get(this.apiUrl)
-      .map((res: Response) => res.json())
+    this.dataservice.getUser().subscribe(users =>
+    {
+      this.users=users;
+    });
   }
-  getContacts()
+  onsubmit()
   {
-    this.getData().subscribe(data =>
-      {
-      
-    console.log(data);
-      this.data=data;
-      })
+ this.dataservice.AddUser(this.user).subscribe(user=>
+ {
+  // this.users = (this.user);
+ })
+    
   }
-  title = 'app';
 }

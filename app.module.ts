@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpModule} from '@angular/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { DataserviceService } from './dataservice.service';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import {HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -13,10 +13,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    NgbModule
+    HttpClientModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [AppComponent],
+  providers: [DataserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
