@@ -1,37 +1,77 @@
-import { DataserviceService } from './dataservice.service';
 import { Component } from '@angular/core';
-import {HttpModule} from '@angular/http';
+import { Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { App, AlertController } from 'ionic-angular';
+import { ApiProvider } from '../providers/api/api';
+
+import { HomePage } from '../pages/home/home';
+import { SignupPage } from '../pages/signup/signup';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.html'
 })
-export class AppComponent {
-  users :any[];
-  user ={
-    id:"",
-    title:"",
-  firstname:"",
-    lastname:"",
-    dateofbirth:"",
-    email:""
-    
+export class MyApp {
+  rootPage= SignupPage;
+  data1:any;
+ 
+ 
+  constructor(public apiProvider: ApiProvider,public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public  app: App, public alertCtrl: AlertController) {
+      platform.ready().then(() => {
+          statusBar.styleDefault();
+          splashScreen.hide();
+          let mynav=app.getActiveNavs()[0];
+        
+        console.log(mynav.getActive());
+          platform.registerBackButtonAction(() => {
+
+              //let nav = app.getActiveNavs()[0];
+              //console.log(nav);
+              //let activeView = nav.getActive();                
+
+              //if(activeView.name === "SignupPage") {
+
+                                   const alert = this.alertCtrl.create({
+                          title: 'App termination',
+                          message: 'Do you want to close the app?',
+                          buttons: [{
+                              text: 'Cancel',
+                              role: 'Cancel',
+                              handler: () => {
+                                  console.log('Application exit prevented!');
+                              }
+                          },{
+                              text: 'Close App',
+                              handler: () => {
+                                this.logout();
+                                  this.platform.exitApp(); // Close this application
+                              }
+                          }]
+                      });
+                      alert.present();
+                  
+                    //}
+          });
+      });
   }
-  tarray=["Mr","Ms","Mrs"];
-  constructor(public dataservice:DataserviceService)
+  logout()
   {
-    this.dataservice.getUser().subscribe(users =>
-    {
-      this.users=users;
-    });
-  }
-  onsubmit()
-  {
- this.dataservice.AddUser(this.user).subscribe(user=>
- {
-  // this.users = (this.user);
- })
-    
-  }
+  
+ this.apiProvider.logout().then(data => {
+     console.log('inside logout method');
+         console.log(data);
+         this.data1=data;
+       if(this.data1==true)
+       {
+         this.apiProvider.deletestorage();
+       
+
+     }
+     else{
+       console.log('error in delete action');
+     }
+       });
 }
+  
+}
+

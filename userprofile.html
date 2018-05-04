@@ -1,0 +1,47 @@
+
+<ion-content padding>
+  
+  <img src="assets/imgs/image1.jpg"><br>
+     Welcome : {{userid}}
+     <button ion-button round color="secondary" (click)="getdetail()">Getuserdetail</button>
+     <button ion-button round color="secondary" (click)="logout()">logout</button>
+     
+   
+      <div class="row header">
+        <div class="col">Id</div>
+        <div class="col">username</div>
+        <div class="col">lastlogintime</div>
+        <div class="col">loginstatus</div>
+        <div class="col">userstatus</div>
+       
+       
+      </div> 
+       <div class="row" *ngFor ="let user of data">
+          <div class="col">{{user.user_id}}</div>
+        <div class="col">{{user.user_name}}</div>
+        <div class="col">{{user.user_lastsuccessfulllogin}}</div>
+        <div class="col">{{user.user_loginstatus}}</div>
+        <div class="col">{{user.user_status}}</div>
+      </div>
+      
+    <div *ngIf="model_flag == 1" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Your session is going to expire!</h4>
+          </div>
+          <div class="modal-body">
+          <strong style="color:red;">
+          <h4 style="color:black">Do you want to extend?</h4></strong>
+          </div>
+          <div class="modal-footer">
+            
+            <button ion-button round color="secondary" (click)="reset()" data-dismiss="modal">Yes</button>
+  
+            <button ion-button round color="secondary" data-dismiss="modal" (click)="logout()" >No</button>
+          </div>
+         </div>
+      </div>
+  </div>
+  </ion-content>

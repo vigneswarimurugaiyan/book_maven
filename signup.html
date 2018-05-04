@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar  color="secondary">
+    <ion-title>Gemiro Tech Solutions</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2>Please, Login</h2>
+    <ion-item>
+      <ion-label stacked>Username</ion-label>
+      <ion-input [(ngModel)]="loginData.user_name" name="user_name" type="text" placeholder="Username" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input [(ngModel)]="loginData.user_pwd" name="user_pwd" type="password" placeholder="Password"></ion-input>
+    </ion-item><br>
+    <button ion-button round  type="reset"  color="secondary">clear</button>
+    <button ion-button round color="secondary" (click)="doLogin()">Login</button>
+    <ion-item *ngIf="flag == 0"><h3 style="color:red;">Log in Failuare</h3></ion-item>
+</ion-content>
