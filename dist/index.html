@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>WebVirutalKeypad</title><base href="."><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><script src="angular-material-keyboard/dist/mdKeyboard.min.js"></script><link rel="stylesheet" href="angular-material-keyboard/dist/mdKeyboard.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Material+Icons"><script type="text/javascript" src="jquery.min.js"></script><script src="/node_modules/angular-i18n/angular-locale_YOUR-LOCALE.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="http://code.jquery.com/jquery-1.11.3.min.js"></script><script type="text/javascript" src="jquery.min.js"></script><script type="text/javascript">var arrLang = {
+      'en' : {
+        'name':'Name:',
+        'DOB':'DOB:',
+    },
+     
+      'tn' : {
+        'name':'பெயர்:',
+        'DOB':'பிறந்ததேதி:',
+    },
+    'hi': {
+      'name':'नाम:',
+      'DOB':'जन्म की तारीख:'
+    }
+  };
+    $(function(){
+      $('.translate').click(function(){
+        var lang = $(this).attr('id');
+        $('.lang').each (function(index, element){
+          $(this).text(arrLang[lang][$(this).attr('key')]);
+        });
+      });
+    });</script><link href="styles.73040a4f3bdc995c5602.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><mat-keyboard-demo-root>Loading...</mat-keyboard-demo-root><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.194f3db5c95bb635c66b.bundle.js"></script><script type="text/javascript" src="main.4d90ef55adbe79580720.bundle.js"></script></body></html>
