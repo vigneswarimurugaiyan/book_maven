@@ -1,0 +1,211 @@
+[
+
+    {
+      "key1": "title",
+        "label": "Title",
+       "value": "title",
+       "type": "select",
+        "options": [{ "label":"(choose one)","value":"choose one"},
+          { "label":"Mr","value":"Mr"},
+          {"label":"Mrs","value": "Mrs"},
+          {"label":"Ms","value":"Ms"}],
+      
+      "validation": {
+        "required": true
+        }
+      },
+      
+      
+      
+     {
+        "key1": "firstname",
+        "label": "FirstName",
+       "value": "vigneswari",
+       "type": "text",
+     
+       "validation": {
+        "required": true,
+        "minLength":3,
+        "maxLength":25
+      }
+      },
+     {
+      "key1": "lastname",
+        "label": "LastName",
+       "value": "Murugaiyan",
+       "type": "text",
+     
+       "validation": {
+        "required": true,
+        "minLength":3,
+        "maxLength":25
+      
+      }
+      
+      },
+      
+     {
+      "key1": "email",
+        "label": "Email",
+       "value": "vickysweetym@gmail.com",
+       "type": "email",
+      
+       "validation": {
+        "required": true,
+        "pattern":"^[A-Za-z0-9._%+-]+@(?!testdomain.com)[A-Za-z0-9.-]+.[A-Za-z]{2,4}$" 
+        }
+      
+      },
+      
+      {
+      "key1": "dob",
+        "label": "DOB",
+       "value": "",
+       "type": "date",
+     
+       "validation": {
+        "required": true
+        }
+      
+      }
+     
+      
+      
+       
+    ]
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

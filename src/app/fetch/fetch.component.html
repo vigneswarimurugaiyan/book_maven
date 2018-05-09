@@ -1,0 +1,12 @@
+<div class="container">
+  <table class="table table-stripped table-bordered">
+  <thead>
+  <tr style="color:red;"><td>Name</td><td>DOB</td><td>Email</td></tr>
+  </thead>
+  <tbody>
+  <tr *ngFor ="let user of users">
+  <td style="color:red;">{{user.title}}.{{user.firstname}} {{user.lastname}}</td>
+  <td>{{user.dateofbirth}}</td>
+  <td style="color:red;">{{user.email}}</td>
+  </tr></tbody></table></div>
+  
